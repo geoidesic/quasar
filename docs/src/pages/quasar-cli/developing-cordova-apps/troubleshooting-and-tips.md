@@ -82,6 +82,25 @@ The output should contain each one entry for the Android SDK 'tools'-folder and 
 
 > If you ensured your paths are set correctly and still get the error on `cordova requirements` you can try the following fix: [Replacing the Android Studio 'tools' folder manually](https://github.com/meteor/meteor/issues/8464#issuecomment-288112504)
 
+#### There are some problems with Android 9 emulator: ####
+##### net::ERR_CLEARTEXT_NOT_PERMITTED #####
+Edit the android platform node
+```
+    <platform name="android">
+        <allow-intent href="market:*" />
+        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+            <application android:usesCleartextTraffic="true" />
+        </edit-config>
+    </platform>
+```
+
+##### Error parsing XML: unbound prefix #####
+Add this attribute to the first node of Config.xml
+```
+xmlns:android="http://schemas.android.com/apk/res/android"
+```
+
+
 ### Setting up device on Linux
 
 You may bump into `?????? no permissions` problem when trying to run your App directly on an Android phone/tablet.
