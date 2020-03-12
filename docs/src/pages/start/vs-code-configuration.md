@@ -73,10 +73,10 @@ To edit the settings use the command `Open Settings JSON` in the Command Palette
     },
 
     "vetur.format.defaultFormatter.html": "prettyhtml",
-    "vetur.format.defaultFormatter.js": "prettier-eslint"
+    "vetur.format.defaultFormatter.js": "prettier-eslint",
+    "vetur.format.enable": false,
 }
 ```
-
 ### Test Prettier on a new Quasar project
 
 ```bash
